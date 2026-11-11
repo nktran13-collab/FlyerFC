@@ -1,4 +1,4 @@
-/* ===== FlyerFC — app logic ===== */
+/* ===== FlyersFC — app logic ===== */
 (function () {
   'use strict';
 
@@ -722,7 +722,7 @@
     modalEl.innerHTML =
       '<div class="modal-card tone-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">' +
         '<div class="modal-icon">📲</div>' +
-        '<h3 class="modal-title" id="modal-title">Cài FlyerFC</h3>' +
+        '<h3 class="modal-title" id="modal-title">Cài FlyersFC</h3>' +
         '<p class="modal-sub">Thêm ứng dụng ra màn hình chính để mở nhanh như app thật.</p>' +
         '<ol class="install-steps">' + steps.map((step) => '<li><span>' + step + '</span></li>').join('') + '</ol>' +
         '<p class="install-note">Nếu đang mở trong Zalo hoặc Facebook, hãy mở bằng Safari/Chrome trước nhé.</p>' +
