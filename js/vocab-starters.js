@@ -35,7 +35,9 @@ window.VOCAB = window.VOCAB || {};
           W('tiger', 'con hổ', '🐯', 'The tiger has orange fur.'),
           W('snake', 'con rắn', '🐍', 'The snake is long and green.'),
           W('mouse', 'con chuột', '🐭', 'The mouse is very small.'),
-          W('bear', 'con gấu', '🐻', 'The bear likes to eat honey.')
+          W('bear', 'con gấu', '🐻', 'The bear likes to eat honey.'),
+          W('pet', 'thú cưng', '🐶', 'My dog is my favourite pet.'),
+          W('tail', 'cái đuôi', '🐒', 'The monkey has a long tail.')
         ]
       },
       {
@@ -84,7 +86,11 @@ window.VOCAB = window.VOCAB || {};
           W('ice cream', 'kem', '🍦', 'Ice cream is cold and sweet.'),
           W('chocolate', 'sô-cô-la', '🍫', 'This chocolate is very good.'),
           W('soup', 'súp', '🥣', 'Hot soup is good in winter.'),
-          W('grapes', 'chùm nho', '🍇', 'These grapes are purple.')
+          W('grapes', 'chùm nho', '🍇', 'These grapes are purple.'),
+          W('breakfast', 'bữa sáng', '🥣', 'I have bread and milk for breakfast.'),
+          W('lunch', 'bữa trưa', '🍱', 'We eat lunch at school.'),
+          W('dinner', 'bữa tối', '🍲', 'My family has dinner together.'),
+          W('fruit', 'trái cây', '🍇', 'Fruit is good for your body.')
         ]
       },
       {
@@ -109,7 +115,11 @@ window.VOCAB = window.VOCAB || {};
           W('ear', 'cái tai', '👂', 'My ear hurts a little.'),
           W('nose', 'cái mũi', '👃', 'The clown has a red nose.'),
           W('mouth', 'cái miệng', '👄', 'Open your mouth and say ah.'),
-          W('hair', 'mái tóc', '💇', 'She has long black hair.')
+          W('hair', 'mái tóc', '💇', 'She has long black hair.'),
+          W('arm', 'cánh tay', '💪', 'My arm is strong.'),
+          W('leg', 'cái chân', '🦵', 'My leg is long.'),
+          W('body', 'cơ thể', '🧍', 'Your body needs good food.'),
+          W('face', 'khuôn mặt', '😊', 'Wash your face every morning.')
         ]
       },
       {
@@ -134,7 +144,11 @@ window.VOCAB = window.VOCAB || {};
           W('teddy bear', 'gấu bông', '🧸', 'I sleep with my teddy bear.'),
           W('computer', 'máy tính', '💻', 'I play games on the computer.'),
           W('clock', 'đồng hồ', '🕐', 'The clock shows eight o clock.'),
-          W('puzzle', 'trò xếp hình', '🧩', 'This puzzle has fifty pieces.')
+          W('puzzle', 'trò xếp hình', '🧩', 'This puzzle has fifty pieces.'),
+          W('desk', 'bàn học', '🪑', 'My book is on the desk.'),
+          W('letter', 'chữ cái', '🔤', 'The letter A is the first letter.'),
+          W('paper', 'tờ giấy', '📄', 'I draw on a big sheet of paper.'),
+          W('story', 'câu chuyện', '📖', 'Mum reads me a story at night.')
         ]
       },
       {
@@ -158,7 +172,287 @@ window.VOCAB = window.VOCAB || {};
           W('shorts', 'quần đùi', '🩳', 'He wears shorts in the summer.'),
           W('jumper', 'áo len', '🧶', 'My jumper is soft and warm.'),
           W('boots', 'bốt', '🥾', 'I wear boots in the rain.'),
-          W('cap', 'mũ lưỡi trai', '🧢', 'His cap is blue and white.')
+          W('cap', 'mũ lưỡi trai', '🧢', 'His cap is blue and white.'),
+          W('jeans', 'quần jeans', '👖', 'I wear jeans on Saturday.'),
+          W('glasses', 'kính mắt', '👓', 'My grandpa wears glasses.'),
+          W('baseball cap', 'mũ bóng chày', '🧢', 'My baseball cap is red.')
+        ]
+      },
+      {
+        id: 'home',
+        name: 'My Home',
+        vi: 'Ngôi nhà',
+        icon: '🏠',
+        tone: 2,
+        words: [
+          W('house', 'ngôi nhà', '🏠', 'The house has a red roof.'),
+          W('home', 'nhà, tổ ấm', '🏡', 'I go home after school.'),
+          W('bedroom', 'phòng ngủ', '🛏️', 'My bedroom has a big bed.'),
+          W('bathroom', 'phòng tắm', '🛁', 'I brush my teeth in the bathroom.'),
+          W('kitchen', 'nhà bếp', '🍳', 'Mum cooks in the kitchen.'),
+          W('living room', 'phòng khách', '🛋️', 'We watch TV in the living room.'),
+          W('dining room', 'phòng ăn', '🍴', 'We eat dinner in the dining room.'),
+          W('garden', 'khu vườn', '🌷', 'There are flowers in the garden.'),
+          W('wall', 'bức tường', '🧱', 'A picture is on the wall.'),
+          W('floor', 'sàn nhà', '🟫', 'My toys are on the floor.'),
+          W('door', 'cái cửa', '🚪', 'Please close the door.'),
+          W('window', 'cửa sổ', '🌤️', 'Open the window, please.'),
+          W('table', 'cái bàn', '🍽️', 'The cake is on the table.'),
+          W('chair', 'cái ghế', '🪑', 'I sit on a chair.'),
+          W('bed', 'cái giường', '🛌', 'My bed is soft and warm.'),
+          W('flat', 'căn hộ', '🏢', 'We live in a flat on the third floor.')
+        ]
+      },
+      {
+        id: 'home-things',
+        name: 'Home Things',
+        vi: 'Đồ trong nhà',
+        icon: '🛋️',
+        tone: 4,
+        words: [
+          W('armchair', 'ghế bành', '🪑', 'Grandpa sits in the armchair.'),
+          W('sofa', 'ghế sofa', '🛋️', 'The cat sleeps on the sofa.'),
+          W('cupboard', 'cái tủ', '🗄️', 'The cups are in the cupboard.'),
+          W('bookcase', 'kệ sách', '📚', 'My books are on the bookcase.'),
+          W('lamp', 'cái đèn', '💡', 'Turn on the lamp, please.'),
+          W('rug', 'tấm thảm', '🧶', 'The rug is soft and warm.'),
+          W('box', 'cái hộp', '📦', 'My toys are in this box.'),
+          W('camera', 'máy ảnh', '📷', 'Dad takes photos with his camera.'),
+          W('radio', 'đài radio', '📻', 'We listen to music on the radio.'),
+          W('television', 'ti vi', '📺', 'I watch cartoons on television.'),
+          W('tablet', 'máy tính bảng', '📱', 'She plays a game on her tablet.'),
+          W('keyboard', 'bàn phím', '⌨️', 'I type my name on the keyboard.'),
+          W('phone', 'điện thoại', '📞', 'My phone is on the table.'),
+          W('picture', 'bức tranh', '🖼️', 'There is a picture of my family.'),
+          W('poster', 'tấm áp phích', '📰', 'A big poster is on the wall.'),
+          W('board game', 'trò chơi bàn cờ', '🎲', 'We play a board game together.')
+        ]
+      },
+      {
+        id: 'more-food',
+        name: 'More Food',
+        vi: 'Thêm món ăn',
+        icon: '🍔',
+        tone: 3,
+        words: [
+          W('burger', 'bánh hamburger', '🍔', 'I eat a burger for lunch.'),
+          W('carrot', 'củ cà rốt', '🥕', 'Rabbits like carrots.'),
+          W('onion', 'củ hành', '🧅', 'The onion makes me cry.'),
+          W('pea', 'hạt đậu', '🟢', 'There are peas on my plate.'),
+          W('pear', 'quả lê', '🍐', 'This pear is sweet and juicy.'),
+          W('lemon', 'quả chanh', '🍋', 'The lemon is very sour.'),
+          W('mango', 'quả xoài', '🥭', 'I like mango in my fruit salad.'),
+          W('coconut', 'quả dừa', '🥥', 'The coconut is brown and hard.'),
+          W('pineapple', 'quả dứa', '🍍', 'Pineapple is sweet and yellow.'),
+          W('watermelon', 'quả dưa hấu', '🍉', 'Watermelon is cool in summer.'),
+          W('tomato', 'quả cà chua', '🍅', 'A tomato is red and round.'),
+          W('potato', 'củ khoai tây', '🥔', 'We make chips from potatoes.'),
+          W('sausage', 'xúc xích', '🌭', 'I have a sausage for breakfast.'),
+          W('meatballs', 'thịt viên', '🍝', 'Mum makes meatballs with rice.'),
+          W('chips', 'khoai tây chiên', '🍟', 'These chips are hot and crispy.'),
+          W('candy', 'kẹo', '🍬', 'One candy is enough, thank you.')
+        ]
+      },
+      {
+        id: 'sports',
+        name: 'Sports & Play',
+        vi: 'Thể thao & Vui chơi',
+        icon: '⚽',
+        tone: 5,
+        words: [
+          W('badminton', 'cầu lông', '🏸', 'We play badminton in the garden.'),
+          W('baseball', 'bóng chày', '⚾', 'He hits the ball in baseball.'),
+          W('basketball', 'bóng rổ', '🏀', 'The boys play basketball after school.'),
+          W('bat', 'gậy bóng', '🏏', 'She hits the ball with a bat.'),
+          W('football', 'bóng đá', '⚽', 'I play football with my friends.'),
+          W('game', 'trò chơi', '🎮', 'This game is fun.'),
+          W('guitar', 'đàn ghi-ta', '🎸', 'My brother plays the guitar.'),
+          W('hockey', 'khúc côn cầu', '🏑', 'Hockey is a fast game.'),
+          W('piano', 'đàn piano', '🎹', 'She plays the piano very well.'),
+          W('robot', 'người máy', '🤖', 'My robot can walk and talk.'),
+          W('skateboard', 'ván trượt', '🛹', 'He rides his skateboard in the park.'),
+          W('sport', 'môn thể thao', '🏅', 'Swimming is my favourite sport.'),
+          W('table tennis', 'bóng bàn', '🏓', 'We play table tennis at school.'),
+          W('tennis', 'quần vợt', '🎾', 'Tennis is fun to play.'),
+          W('toy', 'đồ chơi', '🪀', 'My toy is in the box.'),
+          W('drawing', 'bức vẽ', '🖍️', 'I make a drawing of my cat.')
+        ]
+      },
+      {
+        id: 'actions',
+        name: 'Actions',
+        vi: 'Hành động',
+        icon: '🏃',
+        tone: 1,
+        words: [
+          W('bounce', 'nảy lên', '⛹️', 'The ball can bounce high.'),
+          W('catch', 'bắt lấy', '🤲', 'Catch the ball with both hands.'),
+          W('clap', 'vỗ tay', '👏', 'We clap after the song.'),
+          W('draw', 'vẽ', '🎨', 'I draw a picture of my family.'),
+          W('drink', 'uống', '🥤', 'I drink water every day.'),
+          W('eat', 'ăn', '🍴', 'We eat lunch at twelve.'),
+          W('jump', 'nhảy', '🤸', 'The frog can jump very high.'),
+          W('kick', 'đá', '🦵', 'Kick the ball to me.'),
+          W('listen', 'lắng nghe', '👂', 'Listen to the teacher.'),
+          W('paint', 'tô màu', '🖌️', 'We paint a big picture.'),
+          W('read', 'đọc', '📖', 'I read a book every night.'),
+          W('run', 'chạy', '🏃', 'I can run very fast.'),
+          W('swim', 'bơi', '🏊', 'We swim in the pool.'),
+          W('throw', 'ném', '🤾', 'Throw the ball to Tom.'),
+          W('walk', 'đi bộ', '🚶', 'I walk to school with my mum.'),
+          W('write', 'viết', '✍️', 'Please write your name.')
+        ]
+      },
+      {
+        id: 'more-actions',
+        name: 'More Actions',
+        vi: 'Thêm hành động',
+        icon: '🙌',
+        tone: 6,
+        words: [
+          W('play', 'chơi', '🎈', 'Let us play in the park.'),
+          W('sing', 'hát', '🎤', 'We sing a happy song.'),
+          W('open', 'mở', '🔓', 'Open your book, please.'),
+          W('close', 'đóng', '🔒', 'Close the door, please.'),
+          W('count', 'đếm', '🔢', 'Count the apples, one, two, three.'),
+          W('find', 'tìm', '🔍', 'Can you find my shoes?'),
+          W('give', 'đưa, tặng', '🎁', 'Give the ball to your sister.'),
+          W('hold', 'cầm, giữ', '🤝', 'Hold my hand, please.'),
+          W('add', 'thêm vào', '➕', 'Add some milk to the tea.'),
+          W('answer', 'trả lời', '💬', 'Please answer the question.'),
+          W('ask', 'hỏi', '❓', 'I ask my teacher for help.'),
+          W('choose', 'chọn', '🤔', 'Choose a book to read.'),
+          W('clean', 'lau chùi', '🧹', 'I clean my room on Saturday.'),
+          W('come', 'đến', '👋', 'Come and sit with me.'),
+          W('sit', 'ngồi', '🪑', 'Please sit on the chair.'),
+          W('wear', 'mặc, đội', '👕', 'I wear a hat in the sun.')
+        ]
+      },
+      {
+        id: 'nature',
+        name: 'Nature',
+        vi: 'Thiên nhiên',
+        icon: '🌳',
+        tone: 6,
+        words: [
+          W('animal', 'con vật', '🐾', 'A cat is a small animal.'),
+          W('bee', 'con ong', '🐝', 'A bee makes honey.'),
+          W('crocodile', 'con cá sấu', '🐊', 'The crocodile has big teeth.'),
+          W('giraffe', 'hươu cao cổ', '🦒', 'The giraffe has a long neck.'),
+          W('goat', 'con dê', '🐐', 'The goat eats grass.'),
+          W('hippo', 'con hà mã', '🦛', 'The hippo is in the water.'),
+          W('lizard', 'con thằn lằn', '🦎', 'A lizard runs on the wall.'),
+          W('spider', 'con nhện', '🕷️', 'A spider has eight legs.'),
+          W('zebra', 'ngựa vằn', '🦓', 'The zebra is black and white.'),
+          W('flower', 'bông hoa', '🌸', 'This flower is pink.'),
+          W('tree', 'cái cây', '🌳', 'A bird sits in the tree.'),
+          W('shell', 'vỏ sò', '🐚', 'I find a shell on the beach.'),
+          W('sea', 'biển', '🌊', 'The sea is blue today.'),
+          W('beach', 'bãi biển', '🏖️', 'We play on the beach.'),
+          W('sun', 'mặt trời', '☀️', 'The sun is hot today.'),
+          W('sand', 'cát', '🏝️', 'The sand is warm under my feet.')
+        ]
+      },
+      {
+        id: 'out-about',
+        name: 'Out & About',
+        vi: 'Đi ra ngoài',
+        icon: '🚌',
+        tone: 2,
+        words: [
+          W('park', 'công viên', '🏞️', 'We play in the park.'),
+          W('playground', 'sân chơi', '🎠', 'Children play in the playground.'),
+          W('street', 'con phố', '🛣️', 'Look both ways in the street.'),
+          W('shop', 'cửa hàng', '🏪', 'The shop sells sweets.'),
+          W('bookshop', 'hiệu sách', '🏬', 'We buy books at the bookshop.'),
+          W('zoo', 'sở thú', '🦁', 'We see lions at the zoo.'),
+          W('school', 'trường học', '🏫', 'My school is near my house.'),
+          W('bus', 'xe buýt', '🚌', 'I go to school by bus.'),
+          W('car', 'xe ô tô', '🚗', 'Dad drives a blue car.'),
+          W('boat', 'con thuyền', '⛵', 'The boat is on the river.'),
+          W('ship', 'con tàu', '🚢', 'The big ship is at sea.'),
+          W('plane', 'máy bay', '✈️', 'The plane flies in the sky.'),
+          W('helicopter', 'trực thăng', '🚁', 'A helicopter is in the sky.'),
+          W('motorbike', 'xe máy', '🏍️', 'He rides a motorbike.'),
+          W('lorry', 'xe tải', '🚛', 'The lorry is big and long.'),
+          W('truck', 'xe tải', '🚚', 'A truck brings food to the shop.')
+        ]
+      },
+      {
+        id: 'people',
+        name: 'People',
+        vi: 'Mọi người',
+        icon: '👨‍👩‍👧',
+        tone: 4,
+        words: [
+          W('boy', 'cậu bé', '👦', 'The boy is playing football.'),
+          W('girl', 'cô bé', '👧', 'The girl has a red dress.'),
+          W('child', 'đứa trẻ', '🧒', 'The child is drawing a picture.'),
+          W('kid', 'em nhỏ', '🧒', 'The kid likes ice cream.'),
+          W('man', 'người đàn ông', '👨', 'The man is reading a book.'),
+          W('woman', 'người phụ nữ', '👩', 'The woman is a teacher.'),
+          W('person', 'người', '🧑', 'One person is waiting for the bus.'),
+          W('cousin', 'anh chị em họ', '👥', 'My cousin lives in a big city.'),
+          W('friend', 'người bạn', '👫', 'My friend lives next to me.'),
+          W('classmate', 'bạn cùng lớp', '👥', 'She is my classmate at school.'),
+          W('teacher', 'giáo viên', '👩‍🏫', 'Our teacher is very kind.'),
+          W('mum', 'mẹ', '👩', 'My mum makes a nice cake.'),
+          W('dad', 'bố', '👨', 'My dad drives me to school.'),
+          W('grandma', 'bà', '👵', 'My grandma tells funny stories.'),
+          W('grandpa', 'ông', '👴', 'My grandpa likes to walk.')
+        ]
+      },
+      {
+        id: 'feelings',
+        name: 'Feelings & Fun',
+        vi: 'Cảm xúc',
+        icon: '😊',
+        tone: 3,
+        words: [
+          W('angry', 'tức giận', '😠', 'The boy is angry now.'),
+          W('happy', 'vui vẻ', '😄', 'I am happy on my birthday.'),
+          W('sad', 'buồn', '😢', 'She is sad because it is raining.'),
+          W('sorry', 'xin lỗi', '😔', 'I am sorry I broke your toy.'),
+          W('scary', 'đáng sợ', '😱', 'The monster looks scary.'),
+          W('funny', 'buồn cười', '😂', 'This story is very funny.'),
+          W('silly', 'ngớ ngẩn', '🤪', 'My silly hat makes everyone laugh.'),
+          W('cool', 'ngầu', '😎', 'Your new shoes are cool.'),
+          W('fantastic', 'tuyệt vời', '🤩', 'The show is fantastic.'),
+          W('great', 'tuyệt', '👍', 'Great! You did it.'),
+          W('good', 'tốt', '😊', 'I am good at drawing.'),
+          W('nice', 'tốt bụng', '🙂', 'Your teacher is very nice.'),
+          W('beautiful', 'đẹp', '😍', 'The garden is beautiful.'),
+          W('favourite', 'yêu thích', '💖', 'Blue is my favourite colour.'),
+          W('fun', 'vui', '🎉', 'The game is fun.'),
+          W('young', 'trẻ', '🐣', 'The young bird cannot fly.')
+        ]
+      },
+      {
+        id: 'numbers-time',
+        name: 'Numbers & Time',
+        vi: 'Số & Thời gian',
+        icon: '🔢',
+        tone: 5,
+        words: [
+          W('one', 'một', '1️⃣', 'I have one nose.'),
+          W('two', 'hai', '2️⃣', 'I have two hands.'),
+          W('three', 'ba', '3️⃣', 'There are three cats.'),
+          W('four', 'bốn', '4️⃣', 'A table has four legs.'),
+          W('five', 'năm', '5️⃣', 'I have five fingers on one hand.'),
+          W('six', 'sáu', '6️⃣', 'Six is my favourite number.'),
+          W('seven', 'bảy', '7️⃣', 'There are seven days in a week.'),
+          W('eight', 'tám', '8️⃣', 'A spider has eight legs.'),
+          W('nine', 'chín', '9️⃣', 'Nine is one less than ten.'),
+          W('ten', 'mười', '🔟', 'I can count to ten.'),
+          W('afternoon', 'buổi chiều', '🌇', 'We play outside in the afternoon.'),
+          W('birthday', 'sinh nhật', '🎂', 'My birthday is in May.'),
+          W('day', 'ngày', '🌞', 'Today is a sunny day.'),
+          W('evening', 'buổi tối', '🌆', 'We read books in the evening.'),
+          W('morning', 'buổi sáng', '🌅', 'I wake up early in the morning.'),
+          W('night', 'ban đêm', '🌙', 'The stars are bright at night.'),
+          W('today', 'hôm nay', '📅', 'Today is my birthday.'),
+          W('year', 'năm', '🗓️', 'I am seven years old this year.'),
+          W('number', 'con số', '🔢', 'I can write the number seven.')
         ]
       }
     ]

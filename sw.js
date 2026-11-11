@@ -1,7 +1,7 @@
 /* ===== FlyersFC — service worker ===== */
 'use strict';
 
-const CACHE_NAME = 'flyerfc-v3';
+const CACHE_NAME = 'flyerfc-v4';
 const APP_SHELL = [
   './',
   './index.html',
