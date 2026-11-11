@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlyerFC — Học từ vựng thật vui</title>
+  <meta name="description" content="Ứng dụng học và trắc nghiệm từ vựng tiếng Anh Starters, Movers, Flyers theo phong cách thẻ ghi nhớ dành cho bé tiểu học.">
+  <meta name="theme-color" content="#fdf6ea">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%A6%89%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud c1"></span>
+    <span class="cloud c2"></span>
+    <span class="cloud c3"></span>
+    <span class="cloud c4"></span>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">🦉</div>
+        <div>
+          <h1 class="brand-title">FlyerFC</h1>
+          <p class="brand-sub">Học từ vựng tiếng Anh thật vui</p>
+        </div>
+      </div>
+      <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true" aria-label="Tắt âm thanh" title="Tắt âm thanh">🔊</button>
+      <button class="icon-btn" id="btn-home" type="button" aria-label="Về trang chủ" title="Về trang chủ">🏠</button>
+    </header>
+
+    <main>
+      <section class="screen is-active" id="screen-home">
+        <div class="hero">
+          <div class="hero-mascot" aria-hidden="true">🦉</div>
+          <div class="hero-bubble">
+            <b>Chào bạn nhỏ!</b> Hôm nay mình cùng học từ vựng tiếng Anh nhé.
+            <br>
+            <span>Chọn một cấp độ để bắt đầu — mỗi chủ đề có thẻ ghi nhớ và trò chơi trắc nghiệm.</span>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>Cấp độ của bạn</h2>
+          <p>Starters → Movers → Flyers</p>
+        </div>
+
+        <div class="level-grid" id="level-grid"></div>
+
+        <div class="feature-strip">
+          <div class="feature-chip">
+            <span class="f-emoji" aria-hidden="true">🃏</span>
+            <div><b>Thẻ ghi nhớ</b><small>Lật thẻ và nghe phát âm</small></div>
+          </div>
+          <div class="feature-chip">
+            <span class="f-emoji" aria-hidden="true">🎯</span>
+            <div><b>Trắc nghiệm</b><small>10 câu vui mỗi lượt chơi</small></div>
+          </div>
+          <div class="feature-chip">
+            <span class="f-emoji" aria-hidden="true">⭐</span>
+            <div><b>Nhận sao</b><small>Tiến bộ được lưu trên máy</small></div>
+          </div>
+        </div>
+        <p class="home-tip">🧸 Mỗi ngày 10 phút, mỗi ngày giỏi hơn một chút nhé!</p>
+      </section>
+
+      <section class="screen" id="screen-topics"></section>
+      <section class="screen" id="screen-study"></section>
+      <section class="screen" id="screen-quiz"></section>
+      <section class="screen" id="screen-result"></section>
+    </main>
+  </div>
+
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="modal" id="modal" hidden></div>
+
+  <script src="js/vocab-starters.js"></script>
+  <script src="js/vocab-movers.js"></script>
+  <script src="js/vocab-flyers.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
