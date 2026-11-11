@@ -570,7 +570,6 @@
           (q.reverse
             ? ''
             : '<button class="quiz-speak" data-say="' + esc(q.word.en) + '" aria-label="Nghe phát âm">🔊</button>') +
-          '<div class="quiz-emoji">' + q.word.emoji + '</div>' +
           '<div class="quiz-word">' + esc(prompt) + '</div>' +
           '<div class="quiz-sub">' + (q.reverse ? 'Từ này trong tiếng Anh là gì?' : 'Từ này có nghĩa là gì?') + '</div>' +
         '</div>' +

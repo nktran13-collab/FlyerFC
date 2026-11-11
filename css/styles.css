@@ -735,7 +735,6 @@ h1, h2, h3 { font-family: var(--font-title); letter-spacing: 0.2px; }
   justify-content: center;
 }
 
-.quiz-emoji { font-size: 62px; line-height: 1; animation: floaty 3.4s ease-in-out infinite; }
 .quiz-word { font-family: var(--font-title); font-size: clamp(27px, 5.2vw, 36px); text-align: center; }
 .quiz-sub { font-size: 13px; color: var(--ink-soft); }
 
@@ -1264,7 +1263,6 @@ h1, h2, h3 { font-family: var(--font-title); letter-spacing: 0.2px; }
   .flash-scene { margin-bottom: 14px; }
   .quiz-head { margin-bottom: 10px; }
   .quiz-card { min-height: 150px; padding: 16px; }
-  .quiz-emoji { font-size: 48px; }
   .quiz-word { font-size: clamp(22px, 4vh, 30px); }
 }
 
