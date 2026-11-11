@@ -688,6 +688,91 @@
       '</div>';
   }
 
+  /* ---------- install to home screen ---------- */
+  let installPrompt = null;
+
+  function isStandalone() {
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  }
+
+  function isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+
+  function updateInstallUI() {
+    const show = !isStandalone() && (!!installPrompt || isIOS());
+    $$('[data-install]').forEach((el) => { el.hidden = !show; });
+  }
+
+  function openInstallHelp() {
+    const steps = isIOS()
+      ? [
+          'Mở trang này bằng <b>Safari</b> trên iPhone hoặc iPad.',
+          'Nhấn nút <b>Chia sẻ</b> ⬆️ ở thanh công cụ phía dưới.',
+          'Chọn <b>“Thêm vào Màn hình chính”</b>.',
+          'Nhấn <b>“Thêm”</b> ở góc trên để hoàn tất.'
+        ]
+      : [
+          'Mở menu <b>⋮</b> (Chrome) hoặc <b>⋯</b> (Edge) ở góc trên trình duyệt.',
+          'Chọn <b>“Cài đặt ứng dụng”</b> hoặc <b>“Thêm vào màn hình chính”</b>.',
+          'Nhấn <b>“Cài đặt”</b> để hoàn tất.'
+        ];
+
+    modalEl.innerHTML =
+      '<div class="modal-card tone-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">' +
+        '<div class="modal-icon">📲</div>' +
+        '<h3 class="modal-title" id="modal-title">Cài FlyerFC</h3>' +
+        '<p class="modal-sub">Thêm ứng dụng ra màn hình chính để mở nhanh như app thật.</p>' +
+        '<ol class="install-steps">' + steps.map((step) => '<li><span>' + step + '</span></li>').join('') + '</ol>' +
+        '<p class="install-note">Nếu đang mở trong Zalo hoặc Facebook, hãy mở bằng Safari/Chrome trước nhé.</p>' +
+        '<button class="modal-close" data-action="close-modal">Đã hiểu</button>' +
+      '</div>';
+    modalEl.hidden = false;
+    const btn = modalEl.querySelector('.modal-close');
+    if (btn) btn.focus();
+  }
+
+  async function promptInstall() {
+    if (!installPrompt) {
+      openInstallHelp();
+      return;
+    }
+    const promptEvent = installPrompt;
+    installPrompt = null;
+    promptEvent.prompt();
+    let choice = null;
+    try { choice = await promptEvent.userChoice; } catch (err) { /* prompt dismissed */ }
+    updateInstallUI();
+    if (choice && choice.outcome === 'accepted') {
+      confetti(18);
+      sfx('win');
+    }
+  }
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    installPrompt = e;
+    updateInstallUI();
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installPrompt = null;
+    updateInstallUI();
+    confetti(18);
+    sfx('win');
+  });
+
+  const standaloneQuery = window.matchMedia('(display-mode: standalone)');
+  if (standaloneQuery.addEventListener) standaloneQuery.addEventListener('change', updateInstallUI);
+
+  function registerServiceWorker() {
+    if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => { /* offline cache unavailable */ });
+    });
+  }
+
   /* ---------- sound toggle ---------- */
   function updateSoundBtn() {
     const btn = $('#btn-sound');
@@ -708,6 +793,12 @@
 
   /* ---------- events ---------- */
   document.addEventListener('click', (e) => {
+    const installEl = e.target.closest('[data-install]');
+    if (installEl) {
+      promptInstall();
+      return;
+    }
+
     const sayEl = e.target.closest('[data-say]');
     if (sayEl) {
       speak(sayEl.getAttribute('data-say'));
@@ -826,6 +917,8 @@
     prepareVoices();
     renderHome();
     showScreen('home');
+    updateInstallUI();
+    registerServiceWorker();
   }
 
   init();

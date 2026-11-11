@@ -127,7 +127,7 @@ window.VOCAB = window.VOCAB || {};
           W('rubber', 'cục tẩy', '🧽', 'I use a rubber to clean my page.'),
           W('crayon', 'bút màu', '🖍️', 'She colours with crayons.'),
           W('ball', 'quả bóng', '⚽', 'The boys play with a ball.'),
-          W('doll', 'búp bê', '🪆', 'My doll has a pink dress.'),
+          W('doll', 'búp bê', '🎎', 'My doll has a pink dress.'),
           W('kite', 'cái diều', '🪁', 'We fly a kite in the park.'),
           W('bike', 'xe đạp', '🚲', 'I ride my bike to school.'),
           W('train', 'tàu hỏa', '🚂', 'My toy train is very long.'),

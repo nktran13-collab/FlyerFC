@@ -35,7 +35,7 @@ window.VOCAB = window.VOCAB || {};
           W('branch', 'cành cây', '🌿', 'A bird sits on the branch.'),
           W('leaf', 'chiếc lá', '🍃', 'The leaf turns yellow in autumn.'),
           W('seed', 'hạt giống', '🌱', 'Plant the seed in the soil.'),
-          W('nest', 'tổ chim', '🪺', 'There are two eggs in the nest.')
+          W('nest', 'tổ chim', '🐣', 'There are two eggs in the nest.')
         ]
       },
       {
@@ -60,7 +60,7 @@ window.VOCAB = window.VOCAB || {};
           W('pumpkin', 'quả bí ngô', '🎃', 'We make soup from pumpkin.'),
           W('coconut', 'quả dừa', '🥥', 'This coconut has sweet water.'),
           W('watermelon', 'quả dưa hấu', '🍉', 'Watermelon is perfect in summer.'),
-          W('peas', 'đậu Hà Lan', '🫛', 'Peas are small and green.')
+          W('peas', 'đậu Hà Lan', '🥬', 'Peas are small and green.')
         ]
       },
       {

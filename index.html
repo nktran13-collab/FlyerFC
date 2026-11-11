@@ -2,10 +2,18 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>FlyerFC — Học từ vựng thật vui</title>
   <meta name="description" content="Ứng dụng học và trắc nghiệm từ vựng tiếng Anh Starters, Movers, Flyers theo phong cách thẻ ghi nhớ dành cho bé tiểu học.">
   <meta name="theme-color" content="#fdf6ea">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FlyerFC">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%A6%89%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +37,7 @@
           <p class="brand-sub">Học từ vựng tiếng Anh thật vui</p>
         </div>
       </div>
+      <button class="icon-btn" id="btn-install" type="button" data-install aria-label="Cài app ra màn hình chính" title="Cài app ra màn hình chính" hidden>📲</button>
       <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true" aria-label="Tắt âm thanh" title="Tắt âm thanh">🔊</button>
       <button class="icon-btn" id="btn-home" type="button" aria-label="Về trang chủ" title="Về trang chủ">🏠</button>
     </header>
@@ -50,6 +59,15 @@
         </div>
 
         <div class="level-grid" id="level-grid"></div>
+
+        <button class="install-card" type="button" data-install hidden>
+          <span class="install-emoji" aria-hidden="true">📲</span>
+          <span class="install-copy">
+            <b>Cài FlyerFC ra màn hình chính</b>
+            <small>Mở nhanh như một ứng dụng và học được cả khi không có mạng.</small>
+          </span>
+          <span class="install-go">Cài ngay</span>
+        </button>
 
         <div class="feature-strip">
           <div class="feature-chip">
