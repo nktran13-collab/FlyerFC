@@ -689,9 +689,12 @@
 
   /* ---------- install to home screen ---------- */
   let installPrompt = null;
+  let justInstalled = false;
 
   function isStandalone() {
-    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    return window.matchMedia('(display-mode: standalone)').matches ||
+      window.matchMedia('(display-mode: fullscreen)').matches ||
+      window.navigator.standalone === true;
   }
 
   function isIOS() {
@@ -699,33 +702,71 @@
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   }
 
+  function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+  }
+
+  function isInAppBrowser() {
+    return /Zalo|FBAN|FBAV|FB_IAB|Messenger|Instagram|Line\/|TikTok|BytedanceWebview|MicroMessenger/i.test(navigator.userAgent);
+  }
+
   function updateInstallUI() {
-    const show = !isStandalone() && (!!installPrompt || isIOS());
+    const show = !justInstalled && !isStandalone();
     $$('[data-install]').forEach((el) => { el.hidden = !show; });
   }
 
-  function openInstallHelp() {
-    const steps = isIOS()
-      ? [
+  function installGuide() {
+    if (isInAppBrowser()) {
+      return {
+        steps: [
+          'Nhấn nút <b>⋯</b> hoặc <b>•••</b> ở góc màn hình.',
+          'Chọn <b>“Mở bằng trình duyệt”</b> — Safari trên iPhone/iPad, Chrome trên Android.',
+          'Quay lại trang này và nhấn <b>Cài đặt ứng dụng</b> lần nữa.'
+        ],
+        note: 'Zalo, Facebook, Messenger… không cho cài trực tiếp ra màn hình chính.'
+      };
+    }
+    if (isIOS()) {
+      return {
+        steps: [
           'Mở trang này bằng <b>Safari</b> trên iPhone hoặc iPad.',
           'Nhấn nút <b>Chia sẻ</b> ⬆️ ở thanh công cụ phía dưới.',
-          'Chọn <b>“Thêm vào Màn hình chính”</b>.',
-          'Nhấn <b>“Thêm”</b> ở góc trên để hoàn tất.'
-        ]
-      : [
-          'Mở menu <b>⋮</b> (Chrome) hoặc <b>⋯</b> (Edge) ở góc trên trình duyệt.',
+          'Kéo xuống và chọn <b>“Thêm vào Màn hình chính”</b>.',
+          'Nhấn <b>“Thêm”</b> ở góc trên bên phải để hoàn tất.'
+        ],
+        note: 'iOS chỉ cho phép thêm thủ công qua nút Chia sẻ — sau bước 4 là xong, không cần làm gì thêm.'
+      };
+    }
+    if (isAndroid()) {
+      return {
+        steps: [
+          'Nhấn menu <b>⋮</b> ở góc trên bên phải trình duyệt.',
           'Chọn <b>“Cài đặt ứng dụng”</b> hoặc <b>“Thêm vào màn hình chính”</b>.',
-          'Nhấn <b>“Cài đặt”</b> để hoàn tất.'
-        ];
+          'Nhấn <b>“Cài đặt”</b> và chờ vài giây là xong.'
+        ],
+        note: 'Nếu chưa thấy lựa chọn này, hãy mở trang bằng Chrome, Edge hoặc Samsung Internet.'
+      };
+    }
+    return {
+      steps: [
+        'Nhấn biểu tượng <b>cài đặt</b> trên thanh địa chỉ (Chrome/Edge).',
+        'Hoặc mở menu <b>⋮</b> và chọn <b>“Cài đặt ứng dụng”</b>.',
+        'Nhấn <b>“Cài đặt”</b> để thêm FlyersFC ra màn hình chính.'
+      ],
+      note: 'Nếu trình duyệt chưa hỗ trợ, hãy mở trang bằng Chrome, Edge hoặc Safari.'
+    };
+  }
 
+  function openInstallHelp() {
+    const guide = installGuide();
     modalEl.innerHTML =
       '<div class="modal-card tone-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">' +
         '<div class="modal-icon">📲</div>' +
-        '<h3 class="modal-title" id="modal-title">Cài FlyersFC</h3>' +
-        '<p class="modal-sub">Thêm ứng dụng ra màn hình chính để mở nhanh như app thật.</p>' +
-        '<ol class="install-steps">' + steps.map((step) => '<li><span>' + step + '</span></li>').join('') + '</ol>' +
-        '<p class="install-note">Nếu đang mở trong Zalo hoặc Facebook, hãy mở bằng Safari/Chrome trước nhé.</p>' +
-        '<button class="modal-close" data-action="close-modal">Đã hiểu</button>' +
+        '<h3 class="modal-title" id="modal-title">Cài đặt ứng dụng</h3>' +
+        '<p class="modal-sub">Thêm FlyersFC ra màn hình chính để mở nhanh như app thật.</p>' +
+        '<ol class="install-steps">' + guide.steps.map((step) => '<li><span>' + step + '</span></li>').join('') + '</ol>' +
+        '<p class="install-note">' + guide.note + '</p>' +
+        '<button class="modal-close" data-action="close-install">Đã hiểu</button>' +
       '</div>';
     modalEl.hidden = false;
     const btn = modalEl.querySelector('.modal-close');
@@ -739,10 +780,18 @@
     }
     const promptEvent = installPrompt;
     installPrompt = null;
-    promptEvent.prompt();
     let choice = null;
-    try { choice = await promptEvent.userChoice; } catch (err) { /* prompt dismissed */ }
+    let opened = false;
+    try {
+      promptEvent.prompt();
+      opened = true;
+      choice = await promptEvent.userChoice;
+    } catch (err) { /* prompt unavailable */ }
     updateInstallUI();
+    if (!opened) {
+      openInstallHelp();
+      return;
+    }
     if (choice && choice.outcome === 'accepted') {
       confetti(18);
       sfx('win');
@@ -757,6 +806,7 @@
 
   window.addEventListener('appinstalled', () => {
     installPrompt = null;
+    justInstalled = true;
     updateInstallUI();
     confetti(18);
     sfx('win');
@@ -877,6 +927,8 @@
       } else if (action === 'close-modal') {
         closeModal();
         app.topic = null;
+      } else if (action === 'close-install') {
+        closeModal();
       }
       return;
     }
